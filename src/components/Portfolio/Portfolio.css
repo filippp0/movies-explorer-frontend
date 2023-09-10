@@ -1,0 +1,127 @@
+.page__portfolio {
+  width: 100%;
+  padding-bottom: 105px;
+}
+
+@media screen and (max-width: 1023px) {
+  .page__portfolio {
+    padding-bottom: 69px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page__portfolio {
+    padding-bottom: 50px;
+  }
+}
+
+.portfolio__title {
+  margin: 0 0 50px 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #8B8B8B;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__title {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+}
+
+.portfolio__nav {
+  width: 100%;
+}
+
+.portfolio__lists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio__link {
+  text-decoration: none;
+  padding-bottom: 9px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: space-between;
+  color: var(--main-font-color)
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__link {
+    padding-bottom: 19px;
+  }
+}
+.portfolio__link_type_last {
+  margin-bottom: 0;
+}
+
+.portfolio__subtitle {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width:1023px) {
+  .portfolio__subtitle {
+    font-size: 28px;
+    letter-spacing: -1.12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__subtitle {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+}
+
+.portfolio__button {
+  width: 29px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(../../images/srelka.svg);
+  background-repeat: no-repeat;
+  background-position: 4px 18px;
+  background-size: 20px 18px;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 1023px) {
+  .portfolio__button {
+    width: 27px;
+    background-position: 4px 18px;
+    background-size: 20px 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__button {
+    width: 18px;
+    height: 28px;
+    background-position: 8px 7px;
+    background-size: 10px 10px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio__subtitle:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .portfolio__button:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+}

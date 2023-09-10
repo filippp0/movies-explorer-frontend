@@ -1,0 +1,124 @@
+/* стили для кнопок форм входа и регистрации */
+.login__error-request {
+  visibility: hidden;
+  display: block;
+  width: 100%;
+  min-height: 14px;
+  margin-top: 117px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #FF004C;
+}
+
+@media screen and (max-width: 525px) {
+  .login__error-request {
+    margin-top: 205px;
+  }
+}
+
+.login__error-request_active {
+  visibility: visible;
+}
+
+.login__error-request_type_reg {
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 525px) {
+  .login__error-request_type_reg {
+    margin-top: 113px;
+  }
+}
+
+.login__submit {
+  padding: 0;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  min-height: 45px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--main-font-color);
+  background-color: #4285F4;
+  cursor: pointer;
+  transition: background-color .3s linear;
+}
+
+@media screen and (max-width: 525px) {
+  .login__submit {
+    font-size: 12px;
+  }
+}
+
+.login__submit_disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .login__submit:hover {
+    background-color: rgba(66, 133, 244, .8);
+  }
+}
+
+/* стили для кнопок формы редактирования профиля*/
+.profile__error-request {
+  visibility: hidden;
+  display: block;
+  margin: 166px 0 0 0;
+  min-height: 14px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #FF004C;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__error-request {
+    margin-top: 157px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .profile__error-request {
+    margin-top: 325px;
+  }
+}
+
+.profile__error-request_active {
+  visibility: visible;
+}
+
+.profile__submit {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--main-font-color);
+  cursor: pointer;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 525px) {
+  .profile__submit {
+    font-size: 12px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .profile__submit:hover {
+    opacity: .7;
+  }
+}

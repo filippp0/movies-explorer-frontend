@@ -1,0 +1,340 @@
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  padding: 0 70px;
+}
+
+@media screen and (max-width:1023px) {
+  .page__header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .page__header {
+    padding-left: 14px;
+    padding-right: 12px;
+  }
+}
+
+.page__header_type_page {
+  background-color: transparent;
+}
+
+.header__link-home {
+  display: block;
+  margin: 18px 0;
+  width: 38px;
+  height: 38px;
+  background-image: url('../../images/logo.svg');
+  transition: opacity .3s linear;
+}
+
+.header__links-container {
+  padding: 21px 0 0 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width:767px) {
+  .header__links-container {
+    padding-top: 24px;
+  }
+}
+
+.header__signup {
+  margin-right: 30px;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--main-font-color);
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width:767px) {
+  .header__signup {
+    margin-right: 14px;
+    font-size: 10px;
+  }
+}
+
+.header__signin {
+  text-align: center;
+  padding-top: 8px;
+  background-color: #3DDC84;
+  display: block;
+  border-radius: 3px;
+  width: 76px;
+  min-height: 32px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width:767px) {
+  .header__signin {
+    padding-top: 4px;
+    width: 54px;
+    min-height: 26px;
+    font-size: 10px;
+  }
+}
+
+/*Стили бургерменю*/
+.header__nav {
+  width: 100%;
+  transition: width .2s linear, visibility .2s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .header__nav {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 1;
+  }
+}
+
+.header__nav_open {
+  width: 100%;
+  visibility: visible;
+}
+
+.header__links-container_type_page {
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .header__links-container_type_page {
+    box-sizing: border-box;
+    width: 520px;
+    height: 100vh;
+    padding-top: 159px;
+    padding-bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 auto;
+    background-color: #202020;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .header__links-container_type_page {
+    width: 100%;
+    padding-top: 144px;
+    padding-bottom: 46px;
+  }
+}
+
+.header__link-container:last-of-type {
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link-container:last-of-type {
+    flex: 1;
+    display: flex;
+  }
+}
+
+.header__link-container:nth-of-type(3) {
+  margin-right: calc(377/1102*100%);
+}
+
+@media screen and (max-width: 768px) {
+  .header__link-container:nth-of-type(3) {
+    margin-right: 0;
+  }
+}
+
+.header__link-container:nth-of-type(2) {
+  margin-right: 13px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link-container:nth-of-type(2) {
+    margin: 0;
+    margin-bottom: 28px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .header__link-container:nth-of-type(2) {
+    margin-bottom: 23px;
+  }
+}
+
+.header__link-container:first-of-type {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link-container:first-of-type {
+    display: block;
+    margin-bottom: 31px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .header__link-container:first-of-type {
+    margin-bottom: 27px;
+  }
+}
+
+.header__link {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--main-font-color);
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link {
+    padding-bottom: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.header__link_type_acc {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link_type_acc {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 12px;
+    margin-left: 8px;
+  }
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link_active {
+    border-bottom: 1px solid var(--main-font-color);
+  }
+}
+
+.header__acc-icon {
+  width: 26px;
+  height: 26px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background-color: #313131;
+  background-image: url(../../images/account.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header__burger {
+  display: none;
+  margin-top: 15px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  background-image: url('../../images/burger.svg');
+  background-position: center;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .header__burger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .header__burger {
+    background-image: url('../../images/burger-small.svg');
+  }
+}
+
+.header__burger-close {
+  display: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../images/close-icon.svg);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .header__burger-close {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .header__burger-close {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__signin:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .header__signup:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .header__link-home:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .header__link:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .header__burger-close:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+
+  .header__burger:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+}
