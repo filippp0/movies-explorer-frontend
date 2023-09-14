@@ -6,3 +6,5 @@
 * https://api.diplom-movies-fil.nomoredomainsicu.ru
 ## Ссылка на для фронтэнда:
 * https://diplom-movies-fil.nomoredomainsicu.ru
+## Ссылка на пулреквест:
+* https://github.com/filippp0/movies-explorer-frontend/pull/2
