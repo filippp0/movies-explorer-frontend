@@ -1,0 +1,79 @@
+.page__login {
+  padding-top: 70px;
+  margin: 0 auto;
+  width: 396px;
+}
+
+@media screen and (max-width: 768px) {
+  .page__login {
+    padding-top: 232px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .page__login {
+    padding-top: 56px;
+    width: calc(260/320*100%);
+  }
+}
+
+.login__link-home {
+  display: block;
+  width: 38px;
+  height: 38px;
+  background-image: url(../../images/logo.svg);
+  transition: opacity .3s linear;
+}
+
+@media screen and (max-width: 525px) {
+  .login__link-home {
+    margin: 0 auto;
+  }
+}
+
+.login__title {
+  margin: 40px 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--main-font-color);
+}
+
+@media screen and (max-width: 525px) {
+  .login__title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+}
+
+.login__text {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--main-font-color);
+}
+
+@media screen and (max-width: 525px) {
+  .login__text {
+    font-size: 12px;
+  }
+}
+
+.login__link {
+  text-decoration: none;
+  color: #4285F4;
+  transition: opacity .3s linear;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .login__link:hover {
+    opacity: .7;
+  }
+
+  .login__link-home:hover {
+    opacity: .7;
+  }
+}
