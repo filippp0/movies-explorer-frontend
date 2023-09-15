@@ -1,26 +1,64 @@
 import { useLocation } from 'react-router-dom'
 import MoviesCard from '../MoviesCard/MoviesCard'
 import './MoviesCardList.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Preloader from '../Preloader/Preloader'
+import {
+  MaxScreen,
+  MediumScreen,
+  SmallScreen,
+  InitMoreMaxScreen,
+  InitLessMaxScreen,
+  InitMediumScreen,
+  InitSmallScreen,
+  StepMaxScreen,
+  StepMediumScreen,
+  StepSmallScreen
+} from "../../utils/constants";
 
 export default function MoviesCardList({ movies, onDelete, addMovie, savedMovies, isLoading, serverError, firstEntrance }) {
   const { pathname } = useLocation()
-  const [count, setCount] = useState(printCards().init)
+  const [count, setCount] = useState('')
   const fact = movies.slice(0, count)
 
   function printCards() {
-    const counter = { init: 16, step: 4 }
-    if (window.innerWidth < 1023) {
-      counter.init = 8
-      counter.step = 2
+    const counter = { init: InitMoreMaxScreen, step: StepMaxScreen }
+    if (window.innerWidth < MaxScreen) {
+      counter.init = InitLessMaxScreen
+      counter.step = StepMediumScreen
     }
-    if (window.innerWidth < 650) {
-      counter.init = 5
-      counter.step = 2
+    if (window.innerWidth < MediumScreen) {
+      counter.init = InitMediumScreen
+      counter.step = StepSmallScreen
+    }
+    if (window.innerWidth < SmallScreen) {
+      counter.init = InitSmallScreen
+      counter.step = StepSmallScreen
     }
     return counter
   }
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      setCount(printCards().init)
+      function printCardsForResize() {
+        if (window.innerWidth >= StepMaxScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < StepMaxScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < MediumScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < SmallScreen) {
+          setCount(printCards().init)
+        }
+      }
+      window.addEventListener('resize', printCardsForResize)
+      return () => window.removeEventListener('resize', printCardsForResize)
+    }
+  }, [pathname, movies])
 
   function clickMore() {
     setCount(count + printCards().step)

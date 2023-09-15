@@ -91,8 +91,13 @@
   }
 }
 
-.profile__error-request_active {
+.profile__error-request_type_error {
   visibility: visible;
+}
+
+.profile__error-request_type_success {
+  visibility: visible;
+  color: var(--secondary-font-color);
 }
 
 .profile__submit {
@@ -121,4 +126,9 @@
   .profile__submit:hover {
     opacity: .7;
   }
+}
+
+.profile__submit_disabled {
+  color: var(--secondary-font-color);
+  pointer-events: none;
 }

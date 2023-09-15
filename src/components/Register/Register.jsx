@@ -1,6 +1,7 @@
 import Input from "../Input/Input";
 import SectionLogin from "../SectionLogin/SectionLogin";
 import useFormValidation from '../../hooks/useFormValidation'
+import { EmailRegex } from "../../utils/constants";
 
 export default function Register({ name, onRegister, setIsError }) {
   const { values, errors, isInputValid, isValid, handleChange, } = useFormValidation()
@@ -30,6 +31,7 @@ export default function Register({ name, onRegister, setIsError }) {
         isInputValid={isInputValid.email}
         error={errors.email}
         onChange={handleChange}
+        pattern={EmailRegex}
       />
       <Input
         name='password'

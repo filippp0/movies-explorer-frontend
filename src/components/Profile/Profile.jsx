@@ -6,8 +6,9 @@ import useFormValidation from '../../hooks/useFormValidation'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
+import { EmailRegex } from "../../utils/constants";
 
-export default function Profile({ name, logOut, editUserData, setIsError }) {
+export default function Profile({ name, logOut, editUserData, setIsError, isSuccess, setSuccess }) {
   const currentUser = useContext(CurrentUserContext)
   const { values, errors, isInputValid, isValid, handleChange, reset } = useFormValidation()
 
@@ -28,6 +29,9 @@ export default function Profile({ name, logOut, editUserData, setIsError }) {
         isValid={isValid}
         onSubmit={onSubmit}
         setIsError={setIsError}
+        values={values}
+        isSuccess={isSuccess}
+        setSuccess={setSuccess}
       >
         <Input
           selectname={name}
@@ -49,6 +53,7 @@ export default function Profile({ name, logOut, editUserData, setIsError }) {
           isInputValid={isInputValid.email}
           error={errors.email}
           onChange={handleChange}
+          pattern={EmailRegex}
         />
       </Form>
       <Link to='/' onClick={logOut} className='profile__link'>Выйти из аккаунта</Link>

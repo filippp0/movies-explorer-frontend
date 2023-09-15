@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import './Input.css'
 import SendContext from '../../contexts/SendContext'
 
-export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange }) {
+export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange, pattern }) {
   const isSend = useContext(SendContext)
-
+  // console.log(pattern)
   return (
     <>
       {selectname !== 'profile' ?
@@ -20,6 +20,7 @@ export default function Input({ selectname, name, type, title, minLength, value,
             onChange={onChange}
             autoComplete='on'
             disabled={isSend}
+            pattern={pattern}
           />
           <span className='login__error'>{error}</span>
         </label>
@@ -36,6 +37,7 @@ export default function Input({ selectname, name, type, title, minLength, value,
               value={value || ''}
               onChange={onChange}
               disabled={isSend}
+              pattern={pattern}
             />
           </label>
           <span className={`profile__error ${name === 'username' ? 'profile__error_type_name' : ''}`}>{error}</span>

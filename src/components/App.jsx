@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import apiMain from '../utils/MainApi';
 import SendContext from '../contexts/SendContext';
 import CurrentUserContext from '../contexts/CurrentUserContext.js';
@@ -20,6 +20,7 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([])
   const [isError, setIsError] = useState(false)
   const [isCheckToken, setIsCheckToken] = useState(true)
+  const [isSuccess, setIsSuccess] = useState(false)
 
   useEffect(() => {
     if (localStorage.jwt) {
@@ -30,12 +31,20 @@ function App() {
           setLoggedIn(true)
           setIsCheckToken(false)
         })
-        .catch((err) => console.error(`Ошибка при загрузке начальных данных ${err}`))
+        .catch((err) => {
+          console.error(`Ошибка при загрузке начальных данных ${err}`)
+          setIsCheckToken(false)
+          localStorage.clear()
+        })
     } else {
       setLoggedIn(false)
       setIsCheckToken(false)
     }
   }, [loggedIn])
+
+  const setSuccess = useCallback(() => {
+    setIsSuccess(false)
+  }, [])
 
   function handleDeleteMovie(deletemovieId) {
     apiMain.deleteMovie(deletemovieId, localStorage.jwt)
@@ -115,6 +124,7 @@ function App() {
     apiMain.setUserInfo(username, email, localStorage.jwt)
       .then(res => {
         setCurrentUser(res)
+        setIsSuccess(true)
       })
       .catch((err) => {
         setIsError(true)
@@ -148,6 +158,8 @@ function App() {
                   logOut={logOut}
                   editUserData={editUserData}
                   setIsError={setIsError}
+                  isSuccess={isSuccess}
+                  setSuccess={setSuccess}
                 />
                 } />
 
