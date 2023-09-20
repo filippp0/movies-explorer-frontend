@@ -79,6 +79,7 @@ export default function Movies({ setIsError, addMovie, savedMovies }) {
         searchedMovie={searchedMouvie}
         changeShort={changeShort}
         setIsError={setIsError}
+        firstEntrance={firstEntrance}
       />
       <MoviesCardList
         movies={filteredMovies}

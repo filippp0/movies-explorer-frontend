@@ -25,6 +25,7 @@ export default function Register({ name, onRegister, setIsError }) {
           handleChange(evt)
           setIsError(false)
         }}
+        placeholder='Введите ваше имя'
       />
       <Input
         name='email'
@@ -38,6 +39,7 @@ export default function Register({ name, onRegister, setIsError }) {
           setIsError(false)
         }}
         pattern={EmailRegex}
+        placeholder='Введите вашу электронную почту'
       />
       <Input
         name='password'
@@ -51,6 +53,7 @@ export default function Register({ name, onRegister, setIsError }) {
           handleChange(evt)
           setIsError(false)
         }}
+        placeholder='Введите ваш пароль'
       />
     </SectionLogin>
   )

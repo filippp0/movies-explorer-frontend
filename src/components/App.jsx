@@ -40,6 +40,7 @@ function App() {
     } else {
       setLoggedIn(false)
       setIsCheckToken(false)
+      localStorage.clear()
     }
   }, [loggedIn])
 

@@ -92,8 +92,12 @@ export default function MoviesCardList({ movies, onDelete, addMovie, savedMovies
                   Возможно, проблема с соединением или сервер недоступен.
                   Подождите немного и попробуйте ещё раз»
                 </span>
-                : !firstEntrance &&
+                : !firstEntrance ?
                 <span className='gallery__serch-error'>«Ничего не найдено»</span>
+                : pathname === '/movies' ?
+                <span className='gallery__serch-error'>«Чтобы увидеть список фильмоа выполните поиск»</span>
+                :
+                <span className='gallery__serch-error'>«Нет сохранённых фильмов»</span>
         }
       </ul>
       {pathname === '/movies' && <button type='button' className={`gallery__more ${count >= movies.length && 'gallery__more_hidden'}`} onClick={clickMore}>Ёще</button>}

@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import './Input.css'
 import SendContext from '../../contexts/SendContext'
 
-export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange, pattern, isEdit }) {
+export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange, pattern, isEdit, placeholder }) {
   const isSend = useContext(SendContext)
-  // console.log(pattern)
+
   return (
     <>
       {selectname !== 'profile' ?
@@ -21,6 +21,7 @@ export default function Input({ selectname, name, type, title, minLength, value,
             autoComplete='on'
             disabled={isSend}
             pattern={pattern}
+            placeholder={placeholder}
           />
           <span className='login__error'>{error}</span>
         </label>

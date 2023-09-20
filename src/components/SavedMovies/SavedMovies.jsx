@@ -23,6 +23,11 @@ export default function SavedMovies({ savedMovie, onDelete, setIsError }) {
   }
 
   useEffect(() => {
+    if (savedMovie.length === 0) {
+      setFirstEntrance(true)
+    } else {
+      setFirstEntrance(false)
+    }
     filter(searchedMouvie, isCheck, savedMovie)
   }, [filter, savedMovie, isCheck, searchedMouvie])
 
@@ -46,8 +51,14 @@ export default function SavedMovies({ savedMovie, onDelete, setIsError }) {
         searchedMovie={searchedMouvie}
         changeShort={changeShort}
         setIsError={setIsError}
+        firstEntrance={firstEntrance}
+        savedMovie={savedMovie}
       />
-      <MoviesCardList movies={filteredMovies} onDelete={onDelete} firstEntrance={firstEntrance} />
+      <MoviesCardList
+        movies={filteredMovies}
+        onDelete={onDelete}
+        firstEntrance={firstEntrance}
+      />
     </>
   )
 }

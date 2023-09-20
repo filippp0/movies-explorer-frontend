@@ -46,7 +46,7 @@
     width: 100%;
     height: 100%;
     z-index: 10;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 .preloader_type_button {
@@ -91,6 +91,15 @@
     animation: preloader-inside-red 1s ease-in-out infinite;
 }
 
+/* .preloader__round::after {
+  background: var(--secondary-font-color);
+  animation: preloader-inside-white 1s ease-in-out infinite;
+}
+
+.preloader__round::before {
+  background: var(--dark-color);
+} */
+
 .preloader__container_type_button {
   width: 40px;
   height: 40px;
@@ -107,10 +116,16 @@
   height: 40px;
 }
 
-.preloader__round_type_button::after,
+.preloader__round_type_button::after {
+  width: 40px;
+  height: 40px;
+  background: lightgray;
+}
+
 .preloader__round_type_button::before {
   width: 40px;
   height: 40px;
+  background: #4285F4;
 }
 
 .preloader__round_type_button-small {
@@ -123,13 +138,4 @@
 .preloader__round_type_button-small::before {
   width: 16px;
   height: 16px;
-}
-
-.preloader__round::after {
-  background: var(--secondary-font-color);
-  animation: preloader-inside-white 1s ease-in-out infinite;
-}
-
-.preloader__round::before {
-  background: white;
 }

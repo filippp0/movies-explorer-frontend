@@ -23,6 +23,7 @@ export default function Login({ name, onLogin, setIsError }) {
           handleChange(evt)
           setIsError(false)
         }}
+        placeholder='Введите вашу электронную почту'
       />
       <Input
         name='password'
@@ -36,6 +37,7 @@ export default function Login({ name, onLogin, setIsError }) {
           handleChange(evt)
           setIsError(false)
         }}
+        placeholder='Введите ваш пароль'
       />
     </SectionLogin>
   )

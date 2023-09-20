@@ -49,6 +49,7 @@
 
 .login__text {
   margin: 16px 0 0;
+  padding-bottom: 16px;
   text-align: center;
   font-size: 14px;
   font-weight: 400;

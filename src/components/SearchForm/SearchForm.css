@@ -82,7 +82,7 @@
   outline: 0.2px solid #4285F4;
 }
 
-.search_submit {
+.search__submit {
   width: 34px;
   height: 34px;
   padding: 0;
@@ -95,10 +95,13 @@
   transition: opacity .3s linear;
 }
 
-
+.search__submit_disabled {
+  background-image: url(../../images/search-disabled.svg);
+  pointer-events: none;
+}
 
 @media (hover: hover) and (pointer: fine) {
-  .search_submit:hover {
+  .search__submit:hover {
     opacity: .7;
   }
 }
