@@ -37,7 +37,7 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
   //     }
   //   }
   // }, [isEdit, setIsEdit])
-
+  console.log(isError)
   return (
     <form noValidate name={name} onSubmit={onSubmit}>
       {children}
@@ -46,8 +46,8 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
           <span className={`login__error-request ${isError && 'login__error-request_active'}`}>{'При входе произошла ошибка.'}</span>
           <button
             type="submit"
-            className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`}
-            disabled={!isValid || isSend}
+            className={`login__submit ${isValid && !isError ? '' : 'login__submit_disabled'}`}
+            disabled={!isValid || isSend || isError}
           >{isSend ? <Preloader name='button' /> : 'Войти'}</button>
         </>
         :
@@ -56,8 +56,8 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
             <span className={`login__error-request login__error-request_type_reg ${isError && 'login__error-request_active'}`}>{'При регистрации произошла ошибка.'}</span>
             <button
               type="submit"
-              className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`}
-              disabled={!isValid || isSend}
+              className={`login__submit ${isValid && !isError ? '' : 'login__submit_disabled'}`}
+              disabled={!isValid || isSend || isError}
             >{isSend ? <Preloader name='button' /> : 'Зарегистрироваться'}</button>
           </>
           : !isEdit ?
@@ -66,7 +66,6 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
               <button
                 type="button"
                 className={`profile__submit `}
-                // disabled={!isValid || isSend}
                 onClick={() => {
                   setIsEdit(true)
                   setSuccess(false)
@@ -77,8 +76,8 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
               <span className={`profile__error-request ${isError ? 'profile__error-request_type_error' : isSuccess && 'profile__error-request_type_success'}`}>{isError ? 'При обновлении профиля произошла ошибка.' : 'Успешно'}</span>
               <button
                 type="submit"
-                className={`login__submit ${(values.username === currentUser.name && values.email === currentUser.email) || !isValid ? 'login__submit_disabled' : ''}`}
-                disabled={!isValid || isSend}
+                className={`login__submit ${(values.username === currentUser.name && values.email === currentUser.email) || !isValid || isError ? 'login__submit_disabled' : ''}`}
+                disabled={!isValid || isSend || isError}
               >{isSend ? <Preloader name='button' /> : 'Сохранить'}</button>
             </>
       }

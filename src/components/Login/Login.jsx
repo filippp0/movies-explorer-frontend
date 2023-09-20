@@ -19,7 +19,10 @@ export default function Login({ name, onLogin, setIsError }) {
         value={values.email}
         isInputValid={isInputValid.email}
         error={errors.email}
-        onChange={handleChange}
+        onChange={(evt) => {
+          handleChange(evt)
+          setIsError(false)
+        }}
       />
       <Input
         name='password'
@@ -29,7 +32,10 @@ export default function Login({ name, onLogin, setIsError }) {
         value={values.password}
         isInputValid={isInputValid.password}
         error={errors.password}
-        onChange={handleChange}
+        onChange={(evt) => {
+          handleChange(evt)
+          setIsError(false)
+        }}
       />
     </SectionLogin>
   )

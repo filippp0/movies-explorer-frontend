@@ -21,7 +21,10 @@ export default function Register({ name, onRegister, setIsError }) {
         value={values.username}
         isInputValid={isInputValid.username}
         error={errors.username}
-        onChange={handleChange}
+        onChange={(evt) => {
+          handleChange(evt)
+          setIsError(false)
+        }}
       />
       <Input
         name='email'
@@ -30,7 +33,10 @@ export default function Register({ name, onRegister, setIsError }) {
         value={values.email}
         isInputValid={isInputValid.email}
         error={errors.email}
-        onChange={handleChange}
+        onChange={(evt) => {
+          handleChange(evt)
+          setIsError(false)
+        }}
         pattern={EmailRegex}
       />
       <Input
@@ -41,7 +47,10 @@ export default function Register({ name, onRegister, setIsError }) {
         value={values.password}
         isInputValid={isInputValid.password}
         error={errors.password}
-        onChange={handleChange}
+        onChange={(evt) => {
+          handleChange(evt)
+          setIsError(false)
+        }}
       />
     </SectionLogin>
   )
