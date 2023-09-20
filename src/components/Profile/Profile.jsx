@@ -14,7 +14,7 @@ export default function Profile({ name, logOut, editUserData, setIsError, isSucc
 
   useEffect(() => {
     reset({ username: currentUser.name, email: currentUser.email })
-  }, [reset, currentUser])
+  }, [reset, currentUser, isEdit])
 
   function onSubmit(evt) {
     evt.preventDefault()

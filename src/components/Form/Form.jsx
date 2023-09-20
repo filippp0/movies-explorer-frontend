@@ -37,7 +37,7 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
   //     }
   //   }
   // }, [isEdit, setIsEdit])
-  console.log(isError)
+
   return (
     <form noValidate name={name} onSubmit={onSubmit}>
       {children}
@@ -70,7 +70,7 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
                   setIsEdit(true)
                   setSuccess(false)
                 }}
-              >{isSend ? <Preloader name='button-small' /> : 'Редактировать'}</button>
+              >{'Редактировать'}</button>
             </> :
             <>
               <span className={`profile__error-request ${isError ? 'profile__error-request_type_error' : isSuccess && 'profile__error-request_type_success'}`}>{isError ? 'При обновлении профиля произошла ошибка.' : 'Успешно'}</span>
@@ -79,6 +79,15 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
                 className={`login__submit ${(values.username === currentUser.name && values.email === currentUser.email) || !isValid || isError ? 'login__submit_disabled' : ''}`}
                 disabled={!isValid || isSend || isError}
               >{isSend ? <Preloader name='button' /> : 'Сохранить'}</button>
+              <button
+                type="button"
+                className={`profile__submit `}
+                onClick={() => {
+                  setIsEdit(false)
+                  setSuccess(false)
+                  setIsError(false)
+                }}
+              >{'Отменить редактирование'}</button>
             </>
       }
     </form>
