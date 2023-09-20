@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import './Input.css'
 import SendContext from '../../contexts/SendContext'
 
-export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange, pattern }) {
+export default function Input({ selectname, name, type, title, minLength, value, isInputValid, error, onChange, pattern, isEdit }) {
   const isSend = useContext(SendContext)
   // console.log(pattern)
   return (
@@ -36,7 +36,7 @@ export default function Input({ selectname, name, type, title, minLength, value,
               className={`profile__input ${isInputValid === undefined || isInputValid ? '' : 'profile__input_invaid'}`}
               value={value || ''}
               onChange={onChange}
-              disabled={isSend}
+              disabled={isSend || !isEdit}
               pattern={pattern}
             />
           </label>

@@ -8,7 +8,7 @@ import { useContext } from 'react'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 import { EmailRegex } from "../../utils/constants";
 
-export default function Profile({ name, logOut, editUserData, setIsError, isSuccess, setSuccess }) {
+export default function Profile({ name, logOut, editUserData, setIsError, isSuccess, setSuccess, setIsEdit, isEdit}) {
   const currentUser = useContext(CurrentUserContext)
   const { values, errors, isInputValid, isValid, handleChange, reset } = useFormValidation()
 
@@ -32,6 +32,8 @@ export default function Profile({ name, logOut, editUserData, setIsError, isSucc
         values={values}
         isSuccess={isSuccess}
         setSuccess={setSuccess}
+        setIsEdit={setIsEdit}
+        isEdit={isEdit}
       >
         <Input
           selectname={name}
@@ -43,6 +45,7 @@ export default function Profile({ name, logOut, editUserData, setIsError, isSucc
           isInputValid={isInputValid.username}
           error={errors.username}
           onChange={handleChange}
+          isEdit={isEdit}
         />
         <Input
           selectname={name}
@@ -54,6 +57,7 @@ export default function Profile({ name, logOut, editUserData, setIsError, isSucc
           error={errors.email}
           onChange={handleChange}
           pattern={EmailRegex}
+          isEdit={isEdit}
         />
       </Form>
       <Link to='/' onClick={logOut} className='profile__link'>Выйти из аккаунта</Link>

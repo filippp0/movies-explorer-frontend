@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 import { useLocation } from 'react-router-dom'
 
-export default function Form({ name, children, isValid, onSubmit, setIsError, values, isSuccess, setSuccess }) {
+export default function Form({ name, children, isValid, onSubmit, setIsError, values, isSuccess, setSuccess, setIsEdit, isEdit }) {
   const { pathname } = useLocation()
   const isError = useContext(ErrorContext)
   const isSend = useContext(SendContext)
@@ -21,16 +21,17 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
   useEffect(() => {
     if (pathname === '/profile') {
       setSuccess(false)
+      setIsEdit(false)
     }
-  }, [setSuccess, pathname])
+  }, [setSuccess, setIsEdit, pathname])
 
-  console.log(setSuccess)
+  console.log(isEdit)
   return (
     <form noValidate name={name} onSubmit={onSubmit}>
       {children}
       {name === 'signin' ?
         <>
-          <span className={`login__error-request ${isError && 'profile__error-request_active'}`}>{'При входе произошла ошибка.'}</span>
+          <span className={`login__error-request ${isError && 'login__error-request_active'}`}>{'При входе произошла ошибка.'}</span>
           <button
             type="submit"
             className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`}
@@ -40,22 +41,34 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
         :
         name === 'signup' ?
           <>
-            <span className={`login__error-request login__error-request_type_reg ${isError && 'profile__error-request_active'}`}>{'При регистрации произошла ошибка.'}</span>
+            <span className={`login__error-request login__error-request_type_reg ${isError && 'login__error-request_active'}`}>{'При регистрации произошла ошибка.'}</span>
             <button
               type="submit"
               className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`}
               disabled={!isValid || isSend}
             >{isSend ? <Preloader name='button' /> : 'Зарегистрироваться'}</button>
           </>
-          :
-          <>
-            <span className={`profile__error-request ${isError ? 'profile__error-request_type_error' : isSuccess && 'profile__error-request_type_success'}`}>{isError ? 'При обновлении профиля произошла ошибка.' : 'Успешно'}</span>
-            <button
-              type="submit"
-              className={`profile__submit ${(values.username === currentUser.name && values.email === currentUser.email) || !isValid ? 'profile__submit_disabled' : ''}`}
-              disabled={!isValid || isSend}
-            >{isSend ? <Preloader name='button-small' /> : 'Редактировать'}</button>
-          </>
+          : !isEdit ?
+            <>
+              <span className={`profile__error-request ${isError ? 'profile__error-request_type_error' : isSuccess && 'profile__error-request_type_success'}`}>{isError ? 'При обновлении профиля произошла ошибка.' : 'Успешно'}</span>
+              <button
+                type="button"
+                className={`profile__submit `}
+                // disabled={!isValid || isSend}
+                onClick={() => {
+                  setIsEdit(true)
+                  setSuccess(false)
+                }}
+              >{isSend ? <Preloader name='button-small' /> : 'Редактировать'}</button>
+            </> :
+            <>
+              <span className={`profile__error-request ${isError ? 'profile__error-request_type_error' : isSuccess && 'profile__error-request_type_success'}`}>{isError ? 'При обновлении профиля произошла ошибка.' : 'Успешно'}</span>
+              <button
+                type="submit"
+                className={`login__submit ${(values.username === currentUser.name && values.email === currentUser.email) || !isValid ? 'login__submit_disabled' : ''}`}
+                disabled={!isValid || isSend}
+              >{isSend ? <Preloader name='button' /> : 'Сохранить'}</button>
+            </>
       }
     </form>
   )

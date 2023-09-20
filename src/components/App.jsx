@@ -21,7 +21,8 @@ function App() {
   const [isError, setIsError] = useState(false)
   const [isCheckToken, setIsCheckToken] = useState(true)
   const [isSuccess, setIsSuccess] = useState(false)
-
+  const [isEdit, setIsEdit] = useState(false)
+  console.log(isError)
   useEffect(() => {
     if (localStorage.jwt) {
       Promise.all([apiMain.getUserData(localStorage.jwt), apiMain.getMovies(localStorage.jwt)])
@@ -125,6 +126,7 @@ function App() {
       .then(res => {
         setCurrentUser(res)
         setIsSuccess(true)
+        setIsEdit(false)
       })
       .catch((err) => {
         setIsError(true)
@@ -160,6 +162,8 @@ function App() {
                   setIsError={setIsError}
                   isSuccess={isSuccess}
                   setSuccess={setSuccess}
+                  setIsEdit={setIsEdit}
+                  isEdit={isEdit}
                 />
                 } />
 

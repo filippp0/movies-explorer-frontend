@@ -11,7 +11,7 @@ import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Movies from '../Movies/Movies';
 
-export default function Main({ name, onRegister, onLogin, logOut, editUserData, setIsError, savedMovies, onDelete, addMovie, isSuccess, setSuccess }) {
+export default function Main({ name, onRegister, onLogin, logOut, editUserData, setIsError, savedMovies, onDelete, addMovie, isSuccess, setSuccess, setIsEdit, isEdit }) {
 
   return (
     <main className="main">
@@ -34,6 +34,8 @@ export default function Main({ name, onRegister, onLogin, logOut, editUserData, 
                   setIsError={setIsError}
                   isSuccess={isSuccess}
                   setSuccess={setSuccess}
+                  setIsEdit={setIsEdit}
+                  isEdit={isEdit}
                 />,
         movies:
           <>
