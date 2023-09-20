@@ -15,7 +15,6 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
 
   useEffect(() => {
     setIsError(false)
-
   }, [setIsError, values])
 
   useEffect(() => {
@@ -25,7 +24,20 @@ export default function Form({ name, children, isValid, onSubmit, setIsError, va
     }
   }, [setSuccess, setIsEdit, pathname])
 
-  console.log(isEdit)
+  // useEffect(() => {
+  //   function closeEdit(evt) {
+  //     if (evt.key === 'Escape') {
+  //       setIsEdit(false)
+  //     }
+  //   }
+  //   if (isEdit) {
+  //     window.addEventListener('keydown', closeEdit)
+  //     return () => {
+  //       document.removeEventListener('keydown', closeEdit)
+  //     }
+  //   }
+  // }, [isEdit, setIsEdit])
+
   return (
     <form noValidate name={name} onSubmit={onSubmit}>
       {children}

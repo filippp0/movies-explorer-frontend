@@ -22,7 +22,7 @@ function App() {
   const [isCheckToken, setIsCheckToken] = useState(true)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
-  console.log(isError)
+
   useEffect(() => {
     if (localStorage.jwt) {
       Promise.all([apiMain.getUserData(localStorage.jwt), apiMain.getMovies(localStorage.jwt)])
