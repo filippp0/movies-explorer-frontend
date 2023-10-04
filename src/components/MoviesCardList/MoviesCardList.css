@@ -46,6 +46,11 @@
   }
 }
 
+.gallery__serch-error {
+  text-align: center;
+  color: var(--secondary-font-color);
+}
+
 .gallery__more {
   display: block;
   padding: 0;

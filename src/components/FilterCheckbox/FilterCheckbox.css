@@ -18,6 +18,10 @@
   }
 }
 
+.search__label-containe_disabled {
+  pointer-events: none;
+}
+
 .search__input-container {
   position: relative;
 }

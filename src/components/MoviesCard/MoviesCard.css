@@ -14,18 +14,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 300px;
+  max-width: 225px;
 }
 
 @media screen and (max-width: 1023px) {
   .gallery__text-group {
-    max-width: 275px;
+    max-width: 290px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .gallery__text-group {
-    max-width: 235px;
+    max-width: 250px;
   }
 }
 

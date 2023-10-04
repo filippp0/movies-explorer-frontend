@@ -1,175 +1,24 @@
-import img from '../images/card.png'
-export const movies = [
-  {
-    id: 1,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 2,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 3,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 4,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 5,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 6,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 7,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 8,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 9,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 10,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 11,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 12,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 13,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 14,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 15,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 16,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 17,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 18,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 19,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 20,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 21,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 22,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-]
-
-export const saveMovies = [
-  {
-    id: 1,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 2,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-  {
-    id: 3,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-  },
-]
+const EmailRegex = "^\\S+@\\S+\\.\\S+$"
+const MaxScreen = 1280
+const MediumScreen = 1024
+const SmallScreen = 650
+const InitMoreMaxScreen = 16
+const InitLessMaxScreen = 12
+const InitMediumScreen = 8
+const InitSmallScreen = 5
+const StepMaxScreen = 4
+const StepMediumScreen = 3
+const StepSmallScreen = 2
+export {
+  EmailRegex,
+  MaxScreen,
+  MediumScreen,
+  SmallScreen,
+  InitMoreMaxScreen,
+  InitLessMaxScreen,
+  InitMediumScreen,
+  InitSmallScreen,
+  StepMaxScreen,
+  StepMediumScreen,
+  StepSmallScreen
+}
