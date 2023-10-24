@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import useFormValidation from '../../hooks/useFormValidation'
 import { useLocation } from 'react-router-dom'
 
-export default function SearchForm({ isCheck, changeShort, searchedMovie, searchMovies, setIsError, firstEntrance, savedMovie, }) {
+export default function SearchForm({ isCheck, searchedMovie, searchMovies, setIsError, firstEntrance, savedMovie, movies, filter, setIsCheck }) {
   const { pathname } = useLocation()
   const isError = useContext(ErrorContext)
   const { values, handleChange, reset } = useFormValidation()
@@ -27,6 +27,16 @@ export default function SearchForm({ isCheck, changeShort, searchedMovie, search
       setIsError(false)
     } else {
       setIsError(true)
+    }
+  }
+
+  function changeShort() {
+    if (isCheck) {
+      setIsCheck(false)
+      filter(values.search, false, movies)
+    } else {
+      setIsCheck(true)
+      filter(values.search, true, movies)
     }
   }
 

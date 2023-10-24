@@ -59,27 +59,17 @@ export default function Movies({ setIsError, addMovie, savedMovies }) {
     }
   }, [filter])
 
-  function changeShort() {
-    if (isCheck) {
-      setIsCheck(false)
-      filter(searchedMouvie, false, allMovies)
-      localStorage.setItem('shorts', JSON.stringify(false))
-    } else {
-      setIsCheck(true)
-      filter(searchedMouvie, true, allMovies)
-      localStorage.setItem('shorts', JSON.stringify(true))
-    }
-  }
-
   return (
     <>
       <SearchForm
         isCheck={isCheck}
         searchMovies={searchMovies}
         searchedMovie={searchedMouvie}
-        changeShort={changeShort}
         setIsError={setIsError}
         firstEntrance={firstEntrance}
+        movies={allMovies}
+        filter={filter}
+        setIsCheck={setIsCheck}
       />
       <MoviesCardList
         movies={filteredMovies}

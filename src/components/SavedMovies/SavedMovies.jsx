@@ -31,28 +31,18 @@ export default function SavedMovies({ savedMovie, onDelete, setIsError }) {
     filter(searchedMouvie, isCheck, savedMovie)
   }, [filter, savedMovie, isCheck, searchedMouvie])
 
-  function changeShort() {
-    if (isCheck) {
-      setIsCheck(false)
-      setFirstEntrance(false)
-      filter(searchedMouvie, false, savedMovie)
-    } else {
-      setIsCheck(true)
-      setFirstEntrance(false)
-      filter(searchedMouvie, true, savedMovie)
-    }
-  }
-
   return (
     <>
       <SearchForm
         isCheck={isCheck}
         searchMovies={searchMovies}
         searchedMovie={searchedMouvie}
-        changeShort={changeShort}
         setIsError={setIsError}
         firstEntrance={firstEntrance}
         savedMovie={savedMovie}
+        movies={savedMovie}
+        filter={filter}
+        setIsCheck={setIsCheck}
       />
       <MoviesCardList
         movies={filteredMovies}
